@@ -36,3 +36,6 @@
 .idea/.generators
 .idea/hello_app.iml
 .idea/workspace.xml
+
+# Игнорировать файлы
+Spring /spring/*.pid
