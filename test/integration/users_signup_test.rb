@@ -25,7 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       assert_response :redirect
       follow_redirect!
       assert_response :success
-      flash[:notice] = 'Welcome to the Sample App!'
+      assert_equal 'Welcome to the Sample App!', flash[:success]
     end
     assert_template 'users/show'
   end
