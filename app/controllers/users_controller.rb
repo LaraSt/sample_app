@@ -72,7 +72,6 @@ private
 
   # Подтверждает наличие административных привилегий.
   def admin_user
-    debugger
     redirect_to(root_url) unless current_user.admin?
   end
 end
