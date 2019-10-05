@@ -9,7 +9,7 @@ gem 'bcrypt', '3.1.7'
 gem 'faker', '~> 2.5'
 gem 'will_paginate', '~> 3.1', '>= 3.1.8'
 gem 'bootstrap-will_paginate', '~> 1.0'
-gem 'bootstrap-sass', '3.2.0.0'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -62,6 +62,7 @@ group :test do
   gem 'minitest-reporters', '>= 1.0.5'
   gem 'mini_backtrace', '>=0.1.3'
   gem 'guard-minitest', '2.3.1'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.6'
 end
 
 group :production do
