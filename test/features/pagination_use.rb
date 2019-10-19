@@ -7,7 +7,7 @@ class SuccessfulLoginTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  def test_sanity
+  def test_pagination
     driver = Selenium::WebDriver.for(:chrome)
     driver.manage.timeouts.implicit_wait = 10
 
@@ -21,13 +21,18 @@ class SuccessfulLoginTest < ActionDispatch::IntegrationTest
     password = driver.find_element(id: "session_password")
     password.send_keys('password')
 
-    remember_me = driver.find_element(id: "session_remember_me")
-    remember_me.click
+    #remember_me = driver.find_element(id: "session_remember_me")
+    #remember_me.click
 
     submit = driver.find_element(:css,  ".btn.btn-primary")
     submit.click
 
-    account_link = driver.find_element(:link_text, "Account")
-    assert_not(account_link.nil?)
+    driver.find_element(:link_text, "Users").click
+
+    driver.find_element(:link_text, "2").click
+
+    driver.find_element(:css, "ul > li.next.next_page > a").click
+
+    end
+
   end
-end

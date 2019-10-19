@@ -46,7 +46,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  #gem 'sqlite3'
+  gem 'pg', '~> 1.1', '>= 1.1.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'awesome_print', '~> 1.8'
@@ -66,7 +67,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '>= 0.17.1'
   gem 'rails_12factor', '>= 0.0.2'
   gem 'puma', '~> 3.12', '>= 3.12.1'
 end

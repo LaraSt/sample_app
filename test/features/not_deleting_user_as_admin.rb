@@ -1,13 +1,13 @@
 require "test_helper"
 require "selenium-webdriver"
 
-class SuccessfulLoginTest < ActionDispatch::IntegrationTest
+class DeletingUserAsAdmin < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:michael)
+    @user = users(:archer)
   end
 
-  def test_sanity
+  def test_alerts
     driver = Selenium::WebDriver.for(:chrome)
     driver.manage.timeouts.implicit_wait = 10
 
@@ -21,13 +21,16 @@ class SuccessfulLoginTest < ActionDispatch::IntegrationTest
     password = driver.find_element(id: "session_password")
     password.send_keys('password')
 
-    remember_me = driver.find_element(id: "session_remember_me")
-    remember_me.click
+    #remember_me = driver.find_element(id: "session_remember_me")
+    #remember_me.click
 
     submit = driver.find_element(:css,  ".btn.btn-primary")
     submit.click
 
-    account_link = driver.find_element(:link_text, "Account")
-    assert_not(account_link.nil?)
+    driver.find_element(:link_text, "Users").click
+
+    links = driver.find_elements(:link_text, "Delete")
+    assert(links.size.zero?)
   end
+
 end
