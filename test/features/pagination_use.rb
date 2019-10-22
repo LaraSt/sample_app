@@ -21,9 +21,6 @@ class SuccessfulLoginTest < ActionDispatch::IntegrationTest
     password = driver.find_element(id: "session_password")
     password.send_keys('password')
 
-    #remember_me = driver.find_element(id: "session_remember_me")
-    #remember_me.click
-
     submit = driver.find_element(:css,  ".btn.btn-primary")
     submit.click
 
@@ -31,7 +28,11 @@ class SuccessfulLoginTest < ActionDispatch::IntegrationTest
 
     driver.find_element(:link_text, "2").click
 
-    driver.find_element(:css, "ul > li.next.next_page > a").click
+    account_link = driver.find_element(:css, "ul > li.prev.previous_page > a")
+    assert_not(account_link.nil?)
+
+    account_link = driver.find_element(:css, "ul > li.next.next_page > a")
+    assert_not(account_link.nil?)
 
     end
 
