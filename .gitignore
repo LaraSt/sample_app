@@ -39,3 +39,4 @@
 
 # Игнорировать файлы
 Spring /spring/*.pid
+.env
